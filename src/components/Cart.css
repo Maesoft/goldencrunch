@@ -1,0 +1,19 @@
+.cart {
+  background: rgba(28,28,28,0.9);
+  backdrop-filter: blur(6px);
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 16px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.total {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
