@@ -1,14 +1,14 @@
 export const products = [
   {
     id: 1,
-    name: "Balde Clásico",
-    price: 4500,
-    image: "/balde.jpg"
+    name: "Balde Chico",
+    price: 18000,
+    image: "/balde-chico.jpeg"
   },
   {
     id: 2,
-    name: "Sandwich Crispy Crunch",
-    price: 3000,
-    image: "/sandwich.jpg"
+    name: "Balde Grande",
+    price: 30000,
+    image: "/balde-grande.png"
   }
 ];

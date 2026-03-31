@@ -3,6 +3,8 @@ import { products } from "../data/products";
 import ProductCard from "../components/ProductCard";
 import Cart from "../components/Cart";
 import { useCart } from "../context/CartContext";
+import logo from '../assets/logo.png';
+
 
 export default function Home() {
   const { cart } = useCart();
@@ -45,7 +47,7 @@ export default function Home() {
   return (
     <div className="container">
       <div className="header">
-        <img src="/src/assets/logo.png" alt="Golden Crunch" />
+        <img src={logo} alt="Golden Crunch" />
       </div>
 
       {/* MENÚ */}
