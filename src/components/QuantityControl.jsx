@@ -1,5 +1,5 @@
 import "./QuantityControl.css";
-import { useCart } from "../context/CartContext";
+import { useCart } from "../context/useCart";
 
 export default function QuantityControl({ product }) {
   const { cart, addItem, removeItem } = useCart();

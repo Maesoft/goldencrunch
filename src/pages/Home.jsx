@@ -2,12 +2,14 @@ import { useState } from "react";
 import { products } from "../data/products";
 import ProductCard from "../components/ProductCard";
 import Cart from "../components/Cart";
-import { useCart } from "../context/CartContext";
+import { useCart } from "../context/useCart";
 import logo from '../assets/logo.png';
-
+import SauceSelector from "../components/SauceSelector";
 
 export default function Home() {
   const { cart } = useCart();
+  const { getFinalTotal } = useCart();
+
   const [address, setAddress] = useState("");
 
   const total = Object.values(cart).reduce(
@@ -21,7 +23,7 @@ export default function Home() {
     Object.values(cart).forEach((item) => {
       message += `- ${item.name} x${item.quantity}\n`;
     });
-
+    message += `\nTotal: $${getFinalTotal()}`;
     message += `\n📍 Dirección: ${address}`;
 
     return encodeURIComponent(message);
@@ -59,6 +61,7 @@ export default function Home() {
 
       {/* CARRITO */}
       <Cart />
+      <SauceSelector />
 
       {/* DIRECCIÓN */}
       <div className="address">
@@ -74,7 +77,7 @@ export default function Home() {
       {/* BOTÓN FINAL */}
       <button className="floating-button" onClick={handleSendOrder}>
         {total > 0
-          ? `Pedir por WhatsApp ($${total})`
+          ? `Pedir por WhatsApp ($${getFinalTotal()})`
           : "Agregá productos para pedir"}
       </button>
     </div>
