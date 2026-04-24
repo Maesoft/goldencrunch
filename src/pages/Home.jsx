@@ -51,7 +51,10 @@ export default function Home() {
       <div className="header">
         <img src={logo} alt="Golden Crunch" />
       </div>
-
+      <div className="message">
+        <h3>⚠ ATENCION ⚠</h3>
+        <h4>TODOS NUESTROS PRODUCTOS <br/> TIENEN ENVIO GRATIS 🛵</h4>
+      </div>
       {/* MENÚ */}
       <div className="products">
         {products.map((product) => (
@@ -59,9 +62,8 @@ export default function Home() {
         ))}
       </div>
 
-      {/* CARRITO */}
-      <Cart />
       <SauceSelector />
+      <Cart />
 
       {/* DIRECCIÓN */}
       <div className="address">

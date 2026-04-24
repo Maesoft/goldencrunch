@@ -1,3 +1,7 @@
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -64,4 +68,19 @@ input {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.message {
+  background: rgba(0, 0, 0, 0.847);
+  color: #cfcfcf;
+  padding: 8px 8px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 20px rgba(255, 245, 160, 0.6);
+  backdrop-filter: blur(6px);
+  max-width: 500px;
+  margin: 20px auto;
 }
