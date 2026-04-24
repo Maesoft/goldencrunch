@@ -5,10 +5,10 @@ import Cart from "../components/Cart";
 import { useCart } from "../context/useCart";
 import logo from '../assets/logo.png';
 import SauceSelector from "../components/SauceSelector";
+import { sauces as saucesList } from "../data/sauces";
 
 export default function Home() {
-  const { cart } = useCart();
-  const { getFinalTotal } = useCart();
+const { cart, sauces, getFinalTotal } = useCart();
 
   const [address, setAddress] = useState("");
 
@@ -17,17 +17,24 @@ export default function Home() {
     0,
   );
 
-  const generateWhatsAppMessage = () => {
-    let message = "🍗 *Pedido Golden Crunch* 🍗\n\n";
+const generateWhatsAppMessage = () => {
+  let message = "🍗 *Pedido Golden Crunch* 🍗\n\n";
 
-    Object.values(cart).forEach((item) => {
-      message += `- ${item.name} x${item.quantity}\n`;
-    });
-    message += `\nTotal: $${getFinalTotal()}`;
-    message += `\n📍 Dirección: ${address}`;
+  Object.values(cart).forEach((item) => {
+    message += `- ${item.name} x${item.quantity}\n`;
+  });
 
-    return encodeURIComponent(message);
-  };
+  Object.entries(sauces).forEach(([sauceId, quantity]) => {
+    const sauceData = saucesList.find(s => s.id === sauceId);
+
+    message += `- ${sauceData?.name || sauceId} x${quantity}\n`;
+  });
+
+  message += `\nTotal: $${getFinalTotal()}`;
+  message += `\n📍 Dirección: ${address}`;
+
+  return encodeURIComponent(message);
+};
 
   const handleSendOrder = () => {
     if (Object.keys(cart).length === 0) {
